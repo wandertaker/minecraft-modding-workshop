@@ -18,6 +18,16 @@ To run Minecraft add the run configuration `Add configuration` -> `Application` 
 
 For further setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
+## Example Workshop
+
+1. Decide with the participants on a name for the mod and rename the following files and properties accordingly
+    1. `gradle.properties` -> `maven-group`
+    2. `gradle.properties` -> `archives_base_name`
+    3. `src/main/java/net/fabricmc/example/ExampleMod.java`
+    4. `src/main/java/net/fabricmc/example/mixin/ExampleMixin.java`
+    5. `src/main/resources/fabric.mod.json` -> `entrypoints` -> `main`
+    6. `src/main/resources/modid.mixins.json` -> `ExampleMixin`
+
 ## License
 
 This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
