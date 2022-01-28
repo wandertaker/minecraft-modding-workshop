@@ -51,6 +51,10 @@ For further setup instructions please see the [fabric wiki page](https://fabricm
       "layer0": "modid:item/new_sword"
       }` to reference the new icon.
    4. The new icon should now show up for the new item.
+5. Implement logic to give the player the new sword if an specific formation of special blocks is broken in correct order (for example if emerald blocks in the shape of a sword are broken from top to bottom). You can use the following snippets:
+   1. `PlayerBlockBreakEvents.AFTER.register(((world, player, position, state, blockEntity) -> {})` to register to execute code whenever the player breaks a block
+   2. `player.getInventory().offerOrDrop(newSword.getDefaultStack());` to give the new sword to the player.
+   3. `state.isOf(Blocks.EMERALD_BLOCK)` to check if the broken block is an emerald block.
 
 ## License
 
