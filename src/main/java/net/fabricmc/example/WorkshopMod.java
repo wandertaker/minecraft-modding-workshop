@@ -1,6 +1,13 @@
 package net.fabricmc.example;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterials;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,5 +24,8 @@ public class WorkshopMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+
+		Item newSword = new SwordItem(ToolMaterials.DIAMOND, 150, 2.0f, new FabricItemSettings().group(ItemGroup.COMBAT));
+		net.minecraft.util.registry.Registry.register(Registry.ITEM, new Identifier("modid", "new_sword"), newSword);
 	}
 }
