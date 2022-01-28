@@ -27,6 +27,18 @@ For further setup instructions please see the [fabric wiki page](https://fabricm
     4. `src/main/java/net/fabricmc/example/mixin/ExampleMixin.java`
     5. `src/main/resources/fabric.mod.json` -> `entrypoints` -> `main`
     6. `src/main/resources/modid.mixins.json` -> `ExampleMixin`
+2. Add a new sword to the game in the file <your-name>Mod.java.
+    1. In the `onInitialize` method, create a new variable `Item newSword`.
+    2. Initialize `newSword` with a new `SwordItem` and use the following parameters (IntelliJ will handle all imports for you):
+       1. `ToolMaterials.DIAMOND` to give the sword a material
+       2. Let the group decide for a number to use as `attackDamage` (15 is very powerful, for reference).
+       3. Use `2.0f` or another float for the attack speed.
+       4. Use `FabricItemSettings().group(ItemGroup.COMBAT)` as settings to give the sword a group. This is important, because it sets the group where you can find your sword later in the inventory in creative mode.
+    3. Register the new item in the game by adding `net.minecraft.util.registry.Registry.register(Registry.ITEM, new Identifier("modid", "new_sword"), newSword);`
+    4. To add metadata for the new item create the file `src/main/resources/models/item/new_sword.json` with content `{
+       "parent": "item/generated"
+       }`
+    5. The game should run properly and you should have the new item without texture in the combat group in the creative mode inventory.
 
 ## License
 
