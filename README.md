@@ -44,6 +44,13 @@ For further setup instructions please see the [fabric wiki page](https://fabricm
    2. Set the name in this file in the following format: `{
       "item.modid.new_sword": "<your_name>"
       } `
+4. Add a texture to for the new sword
+   1. Go to the [NovaSkinEditor](https://minecraft.novaskin.me/resourcepacks#default/assets/minecraft/textures/items/diamond_sword.png) and create a texture for the new item together.
+   2. Download the new new icon and place it under `src/main/resources/assets/modid/textures/item/new_sword.png`.
+   3. Open the `new_sword.json` file and add the property `"textures": {
+      "layer0": "modid:item/new_sword"
+      }` to reference the new icon.
+   4. The new icon should now show up for the new item.
 
 ## License
 
