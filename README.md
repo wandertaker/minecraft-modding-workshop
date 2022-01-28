@@ -39,6 +39,11 @@ For further setup instructions please see the [fabric wiki page](https://fabricm
        "parent": "item/generated"
        }`
     5. The game should run properly and you should have the new item without texture in the combat group in the creative mode inventory.
+3. Decide for a name for the new sword
+   1. Add the file `src/main/resources/assets/modid/lang/en_us.json`
+   2. Set the name in this file in the following format: `{
+      "item.modid.new_sword": "<your_name>"
+      } `
 
 ## License
 
