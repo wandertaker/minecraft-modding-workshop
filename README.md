@@ -35,24 +35,25 @@ For further setup instructions please see the [fabric wiki page](https://fabricm
        3. Use `2.0f` or another float for the attack speed.
        4. Use `FabricItemSettings().group(ItemGroup.COMBAT)` as settings to give the sword a group. This is important, because it sets the group where you can find your sword later in the inventory in creative mode.
     3. Register the new item in the game by adding `net.minecraft.util.registry.Registry.register(Registry.ITEM, new Identifier("modid", "new_sword"), newSword);`
-    4. To add metadata for the new item create the file `src/main/resources/models/item/new_sword.json` with content `{
-       "parent": "item/generated"
-       }`
-    5. The game should run properly and you should have the new item without texture in the combat group in the creative mode inventory.
+    4. The game should run properly and you should have the new item without texture in the combat group in the creative mode inventory.
 3. Decide for a name for the new sword
    1. Add the file `src/main/resources/assets/modid/lang/en_us.json`
    2. Set the name in this file in the following format: `{
       "item.modid.new_sword": "<your_name>"
       } `
-4. Add a texture to for the new sword
+4. Add a texture for the new sword
    1. Go to the [NovaSkinEditor](https://minecraft.novaskin.me/resourcepacks#default/assets/minecraft/textures/items/diamond_sword.png) and create a texture for the new item together.
-   2. Download the new new icon and place it under `src/main/resources/assets/modid/textures/item/new_sword.png`.
-   3. Open the `new_sword.json` file and add the property `"textures": {
-      "layer0": "modid:item/new_sword"
-      }` to reference the new icon.
+   2. Download the new icon and place it under `src/main/resources/assets/modid/textures/item/new_sword.png`.
+   3. To add the texture and metadata for the new item create the file `src/main/resources/assets/modid/models/item/new_sword.json` with the following content to reference the new icon.
+    ```
+    { 
+        "parent": "item/generated",
+        "textures": { "layer0": "modid:item/new_sword" }
+    }
+    ```
    4. The new icon should now show up for the new item.
-5. Implement logic to give the player the new sword if an specific formation of special blocks is broken in correct order (for example if emerald blocks in the shape of a sword are broken from top to bottom). You can use the following snippets:
-   1. `PlayerBlockBreakEvents.AFTER.register(((world, player, position, state, blockEntity) -> {})` to register to execute code whenever the player breaks a block
+5. Implement logic to give the player the new sword if a specific formation of special blocks is broken in correct order (for example if emerald blocks in the shape of a sword are broken from top to bottom). You can use the following snippets:
+   1. `PlayerBlockBreakEvents.AFTER.register(((world, player, position, state, blockEntity) -> {}));` to register code that should be executed whenever the player breaks a block.
    2. `player.getInventory().offerOrDrop(newSword.getDefaultStack());` to give the new sword to the player.
    3. `state.isOf(Blocks.EMERALD_BLOCK)` to check if the broken block is an emerald block.
 
