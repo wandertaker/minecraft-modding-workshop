@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	" R ",
+	" R ",
+	" W "
+  ],
+  "key": {
+	"W": {
+	  "item": "minecraft:stick"
+	},
+	"R": {
+	  "item": "minecraft:emerald"
+	}
+  },
+  "result": {
+	"item": "modid:smaragdschwert",
+	"count": 1
+  }
+}
+
+
